@@ -9,7 +9,7 @@
 		"packages/*"
 	],
 	"scripts": {
-		"dev:all": "concurrently \"npm run dev -w @repo/portal\" \"npm run dev -w @repo/github-portfolio -- --port 3001\" \"npm run dev -w product-feedback-form -- --port 3002\"",
+		"dev:all": "concurrently \"npm run dev -w @repo/portal\" \"npm run dev -w @repo/github-portfolio -- --port 3001\" \"npm run dev -w @repo/product-feedback-form -- --port 3002\"",
 		"dev:portal": "npm run dev -w @repo/portal",
 		"dev:github": "concurrently \"npm run dev -w @repo/portal\" \"npm run dev -w @repo/github-portfolio -- --port 3001\"",
 		"dev:form": "concurrently \"npm run dev -w @repo/portal\" \"npm run dev -w product-feedback-form -- --port 3001\"",

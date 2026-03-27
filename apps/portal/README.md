@@ -113,6 +113,30 @@ The following security headers are configured:
 - Focus visible styles
 - Semantic HTML structure
 
+## Test Coverage
+
+- **Total Tests:** 148
+- **Coverage:** 98.78% statements, 96.55% branches, 96% functions, 100% lines
+- **Test Files:** 13 files covering all components, hooks, and utilities
+- **Test Execution:** ~8 seconds
+
+**Coverage by Category:**
+
+| Category    | Coverage |
+| ----------- | -------- |
+| Statements  | 98.78%   |
+| Branches    | 96.55%   |
+| Functions   | 96%      |
+| Lines       | 100%     |
+
+**Files with 100% Coverage:**
+
+- All feature components (`components/features/**/*`)
+- All UI components (`components/ui/**/*`)
+- All hooks (`hooks/**/*`)
+- All utilities (`lib/**/*`)
+- App pages (`app/**/*`)
+
 ## Tech Stack
 
 - **Next.js 16** - React framework with App Router

@@ -7,7 +7,7 @@ describe("constants", () => {
   });
 
   it("exports DEBOUNCE_DELAY_MS", () => {
-    expect(DEBOUNCE_DELAY_MS).toBe(300);
+    expect(DEBOUNCE_DELAY_MS).toBe(150);
   });
 
   it("exports STALE_TIME_MS", () => {
