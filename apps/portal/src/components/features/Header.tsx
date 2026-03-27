@@ -1,47 +1,45 @@
-import * as React from 'react';
-import type { HeaderProps } from '@/types';
+interface HeaderProps {
+  onlineCount: number;
+  totalCount: number;
+  currentTime: Date;
+}
 
-/**
- * Header component with logo, title, status indicator, and clock.
- */
 export function Header({ onlineCount, totalCount, currentTime }: HeaderProps) {
-	return (
-		<header className='h-14 bg-white border-b border-gray-200 flex items-center justify-between px-6'>
-			<div className='flex items-center gap-2.5'>
-				<div
-					className='w-7 h-7 bg-teal-600 rounded-md flex items-center justify-center'
-					aria-hidden='true'>
-					<svg
-						width='16'
-						height='16'
-						fill='white'
-						viewBox='0 0 24 24'>
-						<path d='M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10' />
-					</svg>
-				</div>
-				<span className='font-semibold text-gray-900 text-sm'>
-					HDR UK - Technical Test Portal
-				</span>
-			</div>
-			<div className='flex items-center gap-4'>
-				<div
-					className='flex items-center gap-2 px-2.5 py-1.5 bg-gray-50 rounded-md'
-					role='status'
-					aria-label={`${onlineCount} out of ${totalCount} applications online`}>
-					<span
-						className={`w-2 h-2 rounded-full ${onlineCount === totalCount ? 'bg-emerald-500' : 'bg-amber-500'}`}
-						aria-hidden='true'
-					/>
-					<span className='text-xs text-gray-600'>
-						{onlineCount}/{totalCount} online
-					</span>
-				</div>
-				<div
-					className='text-sm text-gray-500 font-mono'
-					aria-label='Current time'>
-					{currentTime.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
-				</div>
-			</div>
-		</header>
-	);
+  return (
+    <header className="bg-white shadow-sm border-b border-gray-200">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+        <div className="flex items-center justify-between">
+          <div className="flex items-center gap-3">
+            <div className="w-10 h-10 bg-gradient-to-br from-teal-600 to-teal-700 rounded-lg flex items-center justify-center shadow-sm">
+              <svg
+                className="w-6 h-6 text-white"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"
+                />
+              </svg>
+            </div>
+            <div>
+              <h1 className="text-xl font-bold text-gray-900">HDR UK - Technical Test Portal</h1>
+              <p className="text-sm text-gray-600">
+                {onlineCount} of {totalCount} applications online
+              </p>
+            </div>
+          </div>
+          <div className="flex items-center gap-4">
+            <span className="text-sm text-gray-500">
+              {currentTime.toLocaleDateString('en-GB', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })}
+            </span>
+          </div>
+        </div>
+      </div>
+    </header>
+  );
 }
