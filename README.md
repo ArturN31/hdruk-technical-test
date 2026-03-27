@@ -6,14 +6,12 @@
 
 A monorepo containing multiple applications using npm workspaces. Includes a central portal app for easy navigation between all applications.
 
-> **Public Repository**: This is a public repository. Please review [SECURITY.md](SECURITY.md) before contributing and never commit sensitive data.
-
 ## Live Demos
 
-| Application | URL |
-|------------|-----|
-| **Portal** | https://hdruk-technical-test-portal.vercel.app |
-| **GitHub Portfolio** | https://hdruk-technical-test-github-portfol.vercel.app |
+| Application               | URL                                                    |
+| ------------------------- | ------------------------------------------------------ |
+| **Portal**                | https://hdruk-technical-test-portal.vercel.app         |
+| **GitHub Portfolio**      | https://hdruk-technical-test-github-portfol.vercel.app |
 | **Product Feedback Form** | https://hdruk-technical-test-product-feedba.vercel.app |
 
 ## Quick Start
@@ -40,10 +38,10 @@ Open [http://localhost:3000](http://localhost:3000) to access the portal.
 
 ### Port Assignments
 
-| Application | Port | URL |
-|------------|------|-----|
-| Portal | 3000 | http://localhost:3000 |
-| GitHub Portfolio | 3001 | http://localhost:3001 |
+| Application           | Port | URL                   |
+| --------------------- | ---- | --------------------- |
+| Portal                | 3000 | http://localhost:3000 |
+| GitHub Portfolio      | 3001 | http://localhost:3001 |
 | Product Feedback Form | 3002 | http://localhost:3002 |
 
 ## Available Commands
@@ -88,6 +86,7 @@ npm run test -w product-feedback-form
 Central entry point to all applications in this monorepo.
 
 **Features:**
+
 - Application cards with descriptions and tech stack
 - Quick launch links to each application
 - **Environment-aware URLs** (localhost in dev, production in prod)
@@ -95,11 +94,13 @@ Central entry point to all applications in this monorepo.
 - Dark mode support
 
 **Running:**
+
 ```bash
 npm run dev:portal
 ```
 
 **Environment Variables:**
+
 ```bash
 # Copy apps/portal/.env.example to apps/portal/.env.local
 NEXT_PUBLIC_APP_URL=http://localhost:3000
@@ -110,6 +111,7 @@ NEXT_PUBLIC_APP_URL=http://localhost:3000
 ```
 
 **Smart URL Detection:**
+
 - **Development**: Automatically uses `localhost:3001` and `localhost:3002`
 - **Production**: Automatically uses Vercel deployment URLs
 - **Override**: Set `NEXT_PUBLIC_*_URL` environment variables to customize
@@ -119,6 +121,7 @@ NEXT_PUBLIC_APP_URL=http://localhost:3000
 Browse and explore GitHub repositories with filtering, sorting, and search capabilities.
 
 **Features:**
+
 - Repository browser with filters (type, language, sort)
 - Real-time search with suggestions
 - Pagination with load more
@@ -126,11 +129,13 @@ Browse and explore GitHub repositories with filtering, sorting, and search capab
 - Comprehensive test suite (168 tests)
 
 **Running:**
+
 ```bash
 npm run dev:github
 ```
 
 **Environment Variables:**
+
 ```bash
 # Copy apps/github-portfolio/.env.example to apps/github-portfolio/.env.local
 RATE_LIMIT_WINDOW_MS=60000
@@ -146,12 +151,14 @@ RATE_LIMIT_MAX_REQUESTS=10
 Collect product feedback with star ratings and detailed reviews.
 
 **Features:**
+
 - Star rating system
 - Form validation
 - Review submission
 - Comprehensive test suite (69 tests)
 
 **Running:**
+
 ```bash
 npm run dev:form
 ```
@@ -173,13 +180,12 @@ cp apps/github-portfolio/.env.example apps/github-portfolio/.env.local
 ```
 
 **Security Features:**
+
 - All `.env*` files are gitignored
 - Security headers configured on all Next.js apps
 - Rate limiting on API routes (10 req/min per IP)
 - Input validation with Zod schemas
 - XSS protection on forms
-
-See [SECURITY.md](SECURITY.md) for more details.
 
 ## Deployment
 
@@ -205,50 +211,15 @@ npm run build --workspaces --if-present
 3. **Product Feedback Form**: Root directory = `apps/product-feedback-form`
 
 **Portal URL Configuration:**
+
 - Automatically detects production environment
 - Uses Vercel URLs in production, localhost in development
 - Optional: Set environment variables to override defaults
 
-See [DEPLOYMENT.md](DEPLOYMENT.md) for comprehensive deployment instructions.
-
-## Contributing
-
-We welcome contributions! Please see [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
-
-### Quick Start for Contributors
-
-```bash
-# 1. Fork the repository
-# 2. Clone your fork
-git clone https://github.com/YOUR_USERNAME/hdruk-technical-test.git
-cd hdruk-technical-test
-
-# 3. Install dependencies
-npm install
-
-# 4. Create a branch
-git checkout -b feature/your-feature-name
-
-# 5. Make your changes and test
-npm run lint
-npm run type-check
-npm run test
-
-# 6. Commit and push
-git commit -m "feat: your change description"
-git push origin feature/your-feature-name
-
-# 7. Open a Pull Request
-```
-
 ## Test Coverage
 
-| Application | Tests | Coverage |
-|------------|-------|----------|
-| GitHub Portfolio | 168 | 68%+ |
-| Product Feedback Form | 69 | 100% |
-| **Total** | **237** | **Excellent** |
-
-## License
-
-MIT - see [LICENSE](LICENSE) for details.
+| Application           | Tests   | Coverage      |
+| --------------------- | ------- | ------------- |
+| GitHub Portfolio      | 168     | 68%+          |
+| Product Feedback Form | 69      | 100%          |
+| **Total**             | **237** | **Excellent** |
