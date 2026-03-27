@@ -1,0 +1,29 @@
+{
+	"name": "hdruk-technical-test",
+	"version": "0.1.0",
+	"private": true,
+	"workspaces": [
+		"github-portfolio",
+		"product-feedback-form",
+		"apps/*",
+		"packages/*"
+	],
+	"scripts": {
+		"dev:all": "concurrently \"npm run dev -w @repo/portal\" \"npm run dev -w @repo/github-portfolio -- --port 3001\" \"npm run dev -w product-feedback-form -- --port 3002\"",
+		"dev:portal": "npm run dev -w @repo/portal",
+		"dev:github": "concurrently \"npm run dev -w @repo/portal\" \"npm run dev -w @repo/github-portfolio -- --port 3001\"",
+		"dev:form": "concurrently \"npm run dev -w @repo/portal\" \"npm run dev -w product-feedback-form -- --port 3001\"",
+		"lint": "npm run lint --workspaces --if-present",
+		"type-check": "npm run type-check --workspaces --if-present",
+		"test": "npm run test --workspaces --if-present",
+		"test:coverage": "npm run test:coverage --workspaces --if-present",
+		"clean": "npm run clean --workspaces --if-present"
+	},
+	"devDependencies": {
+		"concurrently": "^9.1.2"
+	},
+	"packageManager": "npm@10.9.4",
+	"engines": {
+		"node": ">=20.0.0"
+	}
+}
